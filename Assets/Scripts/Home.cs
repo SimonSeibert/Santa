@@ -1,5 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System;
+
 using TMPro;
 using UnityEngine;
 
@@ -12,24 +12,27 @@ public class Home : MonoBehaviour
 
     private string scoreMessage = "Score: ";
     private bool gotScore = false;
-    private string presentType;
+    private DataManager.presentTypes presentTypeWish;
 
     private void Start()
     {
-        int randomPresentTypeIndex = Random.Range(0, Manager.Instance.getPresentTypes().Length);
-        presentType = Manager.Instance.getPresentTypes()[randomPresentTypeIndex];
-        switch (presentType)
+        //Get Random present Type
+        Array values = Enum.GetValues(typeof(DataManager.presentTypes));
+        System.Random random = new System.Random();
+        presentTypeWish = (DataManager.presentTypes)values.GetValue(random.Next(values.Length));
+
+        switch (presentTypeWish)
         {
-            case "red":
+            case DataManager.presentTypes.RED:
                 presentTypeSprite.sprite = presentTypeSprites[0];
                 break;
-            case "green":
+            case DataManager.presentTypes.GREEN:
                 presentTypeSprite.sprite = presentTypeSprites[1];
                 break;
-            case "yellow":
+            case DataManager.presentTypes.YELLOW:
                 presentTypeSprite.sprite = presentTypeSprites[2];
                 break;
-            case "naughty":
+            case DataManager.presentTypes.NAUGHTY:
                 presentTypeSprite.sprite = presentTypeSprites[3];
                 break;
             default:
@@ -41,19 +44,22 @@ public class Home : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         //Present landed in chimney
-        if (collision.otherCollider == successCollider && !gotScore)
+        if (collision.gameObject.tag == "Present")
         {
-            if (presentType == "naughty")
+            if (collision.otherCollider == successCollider && !gotScore)
             {
-                Manager.Instance.addScore(-1);
+                //Compare thrown present with the wish and adjust score accordingly
+                if (presentTypeWish == DataManager.presentTypes.NAUGHTY || presentTypeWish != collision.gameObject.GetComponent<Present>().getPresentType())
+                {
+                    DataManager.Instance.addScore(-1);
+                }
+                else
+                {
+                    DataManager.Instance.addScore(1);
+                }
+                scoreText.SetText(scoreMessage + DataManager.Instance.getCurrentScore());
+                gotScore = true;
             }
-            else
-            {
-
-                Manager.Instance.addScore(1);
-            }
-            scoreText.SetText(scoreMessage + Manager.Instance.getCurrentScore());
-            gotScore = true;
         }
     }
 
