@@ -95,6 +95,6 @@ public class Controller : MonoBehaviour
         //calculate what the new Y position will be
         float newY = Mathf.Sin(Time.time * upAndDownSpeed);
         //set the object's Y to the new calculated Y
-        transform.position = new Vector3(pos.x, newY, pos.z) * upAndDownHeight + new Vector3(0, upAndDownOffsetY, 0);
+        transform.position = new Vector3(pos.x, newY * upAndDownHeight + upAndDownOffsetY, pos.z);
     }
 }

@@ -9,6 +9,7 @@ public class Home : MonoBehaviour
     public Sprite[] presentTypeSprites;
     public BoxCollider2D successCollider;
     public TextMeshProUGUI scoreText;
+    public GameObject successPS;
 
     private string scoreMessage = "Score: ";
     private bool gotScore = false;
@@ -57,6 +58,8 @@ public class Home : MonoBehaviour
                 else
                 {
                     DataManager.Instance.addScore(1);
+                    GameObject ps = Instantiate(successPS, collision.transform.position, Quaternion.identity, transform);
+                    GameObject.Destroy(ps, ps.GetComponent<ParticleSystem>().main.startLifetime.constant);
                 }
                 scoreText.SetText(scoreMessage + DataManager.Instance.getCurrentScore());
                 gotScore = true;
