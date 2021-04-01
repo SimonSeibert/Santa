@@ -43,6 +43,7 @@ public class Home : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+
         //Present landed in chimney
         if (collision.gameObject.tag == "Present")
         {
