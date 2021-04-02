@@ -7,6 +7,7 @@ TagManager:
   - Home
   - Moving
   - Present
+  - Score_Manager
   layers:
   - Default
   - TransparentFX

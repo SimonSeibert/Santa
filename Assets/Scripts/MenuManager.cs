@@ -8,6 +8,7 @@ public class MenuManager : MonoBehaviour
     public GameObject menuUI;
     public GameObject inGameUI;
     public GameObject gameOverUI;
+    public GameObject howToPlayUI;
     public GameObject[] inGameObjects;
 
 
@@ -22,7 +23,7 @@ public class MenuManager : MonoBehaviour
 
     void Update()
     {
-        
+
     }
 
     public void activateMenuUI()
@@ -30,6 +31,7 @@ public class MenuManager : MonoBehaviour
         menuUI.SetActive(true);
         inGameUI.SetActive(false);
         gameOverUI.SetActive(false);
+        howToPlayUI.SetActive(false);
     }
 
     public void activateInGameUI()
@@ -37,6 +39,7 @@ public class MenuManager : MonoBehaviour
         menuUI.SetActive(false);
         inGameUI.SetActive(true);
         gameOverUI.SetActive(false);
+        howToPlayUI.SetActive(false);
     }
 
     public void activateGameOverUI()
@@ -44,6 +47,15 @@ public class MenuManager : MonoBehaviour
         menuUI.SetActive(false);
         inGameUI.SetActive(false);
         gameOverUI.SetActive(true);
+        howToPlayUI.SetActive(false);
+    }
+
+    public void activateHowToPlayUI()
+    {
+        menuUI.SetActive(false);
+        inGameUI.SetActive(false);
+        gameOverUI.SetActive(false);
+        howToPlayUI.SetActive(true);
     }
 
     public void startGame()
@@ -55,8 +67,8 @@ public class MenuManager : MonoBehaviour
         }
     }
 
-    public void restart()
+    public void restartGame()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }

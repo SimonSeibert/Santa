@@ -9,9 +9,7 @@ public class Home : MonoBehaviour
     public Sprite[] presentTypeSprites;
     public BoxCollider2D successCollider;
     public TextMeshProUGUI scoreText;
-    public GameObject successPS;
 
-    private string scoreMessage = "Score: ";
     private bool gotScore = false;
     private DataManager.presentTypes presentTypeWish;
 
@@ -53,15 +51,12 @@ public class Home : MonoBehaviour
                 //Compare thrown present with the wish and adjust score accordingly
                 if (presentTypeWish == DataManager.presentTypes.NAUGHTY || presentTypeWish != collision.gameObject.GetComponent<Present>().getPresentType())
                 {
-                    DataManager.Instance.addScore(-1);
+                    GameObject.FindGameObjectWithTag("Score_Manager").SendMessageUpwards("score", false);
                 }
                 else
                 {
-                    DataManager.Instance.addScore(1);
-                    GameObject ps = Instantiate(successPS, collision.transform.position, Quaternion.identity, transform);
-                    GameObject.Destroy(ps, ps.GetComponent<ParticleSystem>().main.startLifetime.constant);
+                    GameObject.FindGameObjectWithTag("Score_Manager").SendMessageUpwards("score", true);
                 }
-                scoreText.SetText(scoreMessage + DataManager.Instance.getCurrentScore());
                 gotScore = true;
             }
         }
