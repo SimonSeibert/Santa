@@ -17,7 +17,7 @@ public class TimeManager : MonoBehaviour
 
     void Update()
     {
-
+        DataManager.Instance.addTimePassed(Time.deltaTime);
     }
 
     IEnumerator increaseGameSpeed()

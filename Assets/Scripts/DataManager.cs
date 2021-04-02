@@ -16,8 +16,13 @@ public sealed class DataManager
     private static readonly Lazy<DataManager> lazy = new Lazy<DataManager>(() => new DataManager());
 
     //My Stuff
-    int currentScore = 0;
-    float gameSpeed = 2f;
+    private int currentScore = 0;
+    private float gameSpeed = 2f;
+    private float timePassed = 0f;
+    private float timeUntilDawn = 20f;
+    //private int housesUntilDawn = 50;
+    //private int presentsUntilDawn = 20;
+
     public enum presentTypes
     {
         RED,
@@ -51,5 +56,20 @@ public sealed class DataManager
     public void setGameSpeed(float newGameSpeed)
     {
         gameSpeed = newGameSpeed;
+    }
+
+    public void addTimePassed(float deltaTime)
+    {
+        timePassed += deltaTime;
+    }
+
+    public float getTimePassed()
+    {
+        return timePassed;
+    }
+
+    public float getTimeUntilDawn()
+    {
+        return timeUntilDawn;
     }
 }
