@@ -19,7 +19,8 @@ public sealed class DataManager
     private int currentScore = 0;
     private float gameSpeed = 2f;
     private float timePassed = 0f;
-    private float timeUntilDawn = 20f;
+    private float timeUntilDawn = 120f;
+    //private int missesUntilGameOver = 10;
     //private int housesUntilDawn = 50;
     //private int presentsUntilDawn = 20;
 
