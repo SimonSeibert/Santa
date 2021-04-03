@@ -10,6 +10,11 @@ public class HighScores : MonoBehaviour
 
     void OnEnable()
     {
+        refreshHighScoreTexts();
+    }
+
+    private void refreshHighScoreTexts()
+    {
         for (int i = 0; i < scoreTexts.Length; i++)
         {
             scoreTexts[i].text = (i + 1) + ": " + PlayerPrefs.GetInt("HighScore" + i);
@@ -26,5 +31,14 @@ public class HighScores : MonoBehaviour
                 return;
             }
         }
+    }
+
+    public void resetHighScores(int score)
+    {
+        for (int i = 0; i < scoreTexts.Length; i++)
+        {
+            PlayerPrefs.SetInt("HighScore" + i, 0);
+        }
+        refreshHighScoreTexts();
     }
 }
