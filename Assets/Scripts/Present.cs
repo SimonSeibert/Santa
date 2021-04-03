@@ -6,23 +6,23 @@ using UnityEngine;
 public class Present : MonoBehaviour
 {
     public Sprite[] presentTypeSprites;
-    private DataManager.presentTypes presentType;
+    private Data.presentTypes presentType;
 
-    public void setPresentType(DataManager.presentTypes _presentType)
+    public void setPresentType(Data.presentTypes _presentType)
     {
         presentType = _presentType;
         switch (presentType)
         {
-            case DataManager.presentTypes.RED:
+            case Data.presentTypes.RED:
                 GetComponent<SpriteRenderer>().sprite = presentTypeSprites[0];
                 break;
-            case DataManager.presentTypes.GREEN:
+            case Data.presentTypes.GREEN:
                 GetComponent<SpriteRenderer>().sprite = presentTypeSprites[1];
                 break;
-            case DataManager.presentTypes.YELLOW:
+            case Data.presentTypes.YELLOW:
                 GetComponent<SpriteRenderer>().sprite = presentTypeSprites[2];
                 break;
-            case DataManager.presentTypes.NAUGHTY:
+            case Data.presentTypes.NAUGHTY:
                 GetComponent<SpriteRenderer>().sprite = presentTypeSprites[3];
                 break;
             default:
@@ -31,7 +31,7 @@ public class Present : MonoBehaviour
         }
     }
 
-    public DataManager.presentTypes getPresentType()
+    public Data.presentTypes getPresentType()
     {
         return presentType;
     }

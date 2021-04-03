@@ -11,33 +11,36 @@ public class Home : MonoBehaviour
     public TextMeshProUGUI scoreText;
 
     private bool gotScore = false;
-    private DataManager.presentTypes presentTypeWish;
+    private Data.presentTypes presentTypeWish;
+    private GameObject scoreManager;
 
     private void Start()
     {
+        scoreManager = GameObject.FindGameObjectWithTag("Score_Manager");
         //Get Random present Type
-        Array values = Enum.GetValues(typeof(DataManager.presentTypes));
+        Array values = Enum.GetValues(typeof(Data.presentTypes));
         System.Random random = new System.Random();
-        presentTypeWish = (DataManager.presentTypes)values.GetValue(random.Next(values.Length));
+        presentTypeWish = (Data.presentTypes)values.GetValue(random.Next(values.Length));
 
         switch (presentTypeWish)
         {
-            case DataManager.presentTypes.RED:
+            case Data.presentTypes.RED:
                 presentTypeSprite.sprite = presentTypeSprites[0];
                 break;
-            case DataManager.presentTypes.GREEN:
+            case Data.presentTypes.GREEN:
                 presentTypeSprite.sprite = presentTypeSprites[1];
                 break;
-            case DataManager.presentTypes.YELLOW:
+            case Data.presentTypes.YELLOW:
                 presentTypeSprite.sprite = presentTypeSprites[2];
                 break;
-            case DataManager.presentTypes.NAUGHTY:
+            case Data.presentTypes.NAUGHTY:
                 presentTypeSprite.sprite = presentTypeSprites[3];
                 break;
             default:
                 presentTypeSprite.sprite = presentTypeSprites[0];
                 break;
         }
+
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -49,17 +52,24 @@ public class Home : MonoBehaviour
             if (collision.otherCollider == successCollider && !gotScore)
             {
                 //Compare thrown present with the wish and adjust score accordingly
-                if (presentTypeWish == DataManager.presentTypes.NAUGHTY || presentTypeWish != collision.gameObject.GetComponent<Present>().getPresentType())
+                if (presentTypeWish == Data.presentTypes.NAUGHTY || presentTypeWish != collision.gameObject.GetComponent<Present>().getPresentType())
                 {
-                    GameObject.FindGameObjectWithTag("Score_Manager").SendMessageUpwards("score", false);
+                    scoreManager.SendMessageUpwards("score", false);
                 }
                 else
                 {
-                    GameObject.FindGameObjectWithTag("Score_Manager").SendMessageUpwards("score", true);
+                    scoreManager.SendMessageUpwards("score", true);
                 }
                 gotScore = true;
             }
         }
     }
 
+    private void OnDestroy()
+    {
+        if (!gotScore && presentTypeWish != Data.presentTypes.NAUGHTY)
+        {
+            scoreManager.SendMessageUpwards("score", false);
+        }
+    }
 }

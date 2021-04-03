@@ -9,6 +9,7 @@ public class MenuManager : MonoBehaviour
     public GameObject inGameUI;
     public GameObject gameOverUI;
     public GameObject howToPlayUI;
+    public GameObject highScoreUI;
     public GameObject[] inGameObjects;
 
 
@@ -32,6 +33,8 @@ public class MenuManager : MonoBehaviour
         inGameUI.SetActive(false);
         gameOverUI.SetActive(false);
         howToPlayUI.SetActive(false);
+        highScoreUI.SetActive(false);
+        //DataManager.Instance.setIsGameRunning(false);
     }
 
     public void activateInGameUI()
@@ -40,6 +43,8 @@ public class MenuManager : MonoBehaviour
         inGameUI.SetActive(true);
         gameOverUI.SetActive(false);
         howToPlayUI.SetActive(false);
+        highScoreUI.SetActive(false);
+        //DataManager.Instance.setIsGameRunning(true);
     }
 
     public void activateGameOverUI()
@@ -48,6 +53,8 @@ public class MenuManager : MonoBehaviour
         inGameUI.SetActive(false);
         gameOverUI.SetActive(true);
         howToPlayUI.SetActive(false);
+        highScoreUI.SetActive(false);
+        //DataManager.Instance.setIsGameRunning(false);
     }
 
     public void activateHowToPlayUI()
@@ -56,6 +63,18 @@ public class MenuManager : MonoBehaviour
         inGameUI.SetActive(false);
         gameOverUI.SetActive(false);
         howToPlayUI.SetActive(true);
+        highScoreUI.SetActive(false);
+        //DataManager.Instance.setIsGameRunning(false);
+    }
+
+    public void activateHighScoreUI()
+    {
+        menuUI.SetActive(false);
+        inGameUI.SetActive(false);
+        gameOverUI.SetActive(false);
+        howToPlayUI.SetActive(false);
+        highScoreUI.SetActive(true);
+        //DataManager.Instance.setIsGameRunning(false);
     }
 
     public void startGame()

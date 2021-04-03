@@ -20,7 +20,7 @@ public class MoveAfterHit : MonoBehaviour
     {
         if (!hit)
         {
-            rb.AddForce(Vector2.right * DataManager.Instance.getGameSpeed() * firstHitBounceMultiplier, ForceMode2D.Force);
+            rb.AddForce(Vector2.right * Data.Instance.getGameSpeed() * firstHitBounceMultiplier, ForceMode2D.Force);
             hit = true;
         }
     }
@@ -29,7 +29,7 @@ public class MoveAfterHit : MonoBehaviour
     {
         if (hit)
         {
-            transform.Translate(Vector2.left * DataManager.Instance.getGameSpeed() * Time.deltaTime, Space.World);
+            transform.Translate(Vector2.left * Data.Instance.getGameSpeed() * Time.deltaTime, Space.World);
         }
     }
 }

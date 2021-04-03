@@ -8,6 +8,8 @@ TagManager:
   - Moving
   - Present
   - Score_Manager
+  - Menu_Manager
+  - High_Scores
   layers:
   - Default
   - TransparentFX

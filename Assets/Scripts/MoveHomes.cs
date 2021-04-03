@@ -8,7 +8,7 @@ public class MoveHomes : MonoBehaviour
     {
         foreach (Transform child in transform)
         {
-            child.Translate(Vector2.left * DataManager.Instance.getGameSpeed() * Time.deltaTime, Space.World);
+            child.Translate(Vector2.left * Data.Instance.getGameSpeed() * Time.deltaTime, Space.World);
         }
     }
 }

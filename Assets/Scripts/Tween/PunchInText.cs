@@ -12,7 +12,7 @@ public class PunchInText : MonoBehaviour
     public bool fadeOut = true;
     public float fadeOutTime = 3f;
 
-    void Start()
+    void OnEnable()
     {
         tween();
     }

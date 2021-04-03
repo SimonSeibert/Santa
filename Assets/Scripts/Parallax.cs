@@ -17,7 +17,7 @@ public class Parallax : MonoBehaviour
 
     void Update()
     {
-        transform.Translate(Vector2.left * DataManager.Instance.getGameSpeed() * Time.deltaTime * parallaxStrength, Space.World);
+        transform.Translate(Vector2.left * Data.Instance.getGameSpeed() * Time.deltaTime * parallaxStrength, Space.World);
 
         //Reset the position when its too far left
         if (transform.position.x < startPos - length)

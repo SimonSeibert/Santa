@@ -31,7 +31,7 @@ public class Controller : MonoBehaviour
         moveUpAndDown();
     }
 
-    void dropPresent(DataManager.presentTypes presentType)
+    void dropPresent(Data.presentTypes presentType)
     {
         if (!presentOnCooldown)
         {
@@ -39,21 +39,21 @@ public class Controller : MonoBehaviour
             GameObject present = Instantiate(redPresent, presentSpawner.position, Quaternion.identity, presentSpawner);
             switch (presentType)
             {
-                case DataManager.presentTypes.RED:
-                    present.SendMessageUpwards("setPresentType", DataManager.presentTypes.RED);
+                case Data.presentTypes.RED:
+                    present.SendMessageUpwards("setPresentType", Data.presentTypes.RED);
                     break;
-                case DataManager.presentTypes.GREEN:
-                    present.SendMessageUpwards("setPresentType", DataManager.presentTypes.GREEN);
+                case Data.presentTypes.GREEN:
+                    present.SendMessageUpwards("setPresentType", Data.presentTypes.GREEN);
                     break;
-                case DataManager.presentTypes.YELLOW:
-                    present.SendMessageUpwards("setPresentType", DataManager.presentTypes.YELLOW);
+                case Data.presentTypes.YELLOW:
+                    present.SendMessageUpwards("setPresentType", Data.presentTypes.YELLOW);
                     break;
                 //Naughty is useless right now as your not supposed to throw anything but maybe later you could add coal
-                case DataManager.presentTypes.NAUGHTY:
-                    present.SendMessageUpwards("setPresentType", DataManager.presentTypes.NAUGHTY);
+                case Data.presentTypes.NAUGHTY:
+                    present.SendMessageUpwards("setPresentType", Data.presentTypes.NAUGHTY);
                     break;
                 default:
-                    present.SendMessageUpwards("setPresentType", DataManager.presentTypes.RED);
+                    present.SendMessageUpwards("setPresentType", Data.presentTypes.RED);
                     break;
             }
             //Add a bit of random rotation to each throw
@@ -65,15 +65,15 @@ public class Controller : MonoBehaviour
 
     public void dropPresentRed()
     {
-        dropPresent(DataManager.presentTypes.RED);
+        dropPresent(Data.presentTypes.RED);
     }
     public void dropPresentGreen()
     {
-        dropPresent(DataManager.presentTypes.GREEN);
+        dropPresent(Data.presentTypes.GREEN);
     }
     public void dropPresentYellow()
     {
-        dropPresent(DataManager.presentTypes.YELLOW);
+        dropPresent(Data.presentTypes.YELLOW);
     }
 
     void cooldownManagement()

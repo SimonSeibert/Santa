@@ -1,76 +1,24 @@
-﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using UnityEngine;
 
-public sealed class DataManager
+public class DataManager : MonoBehaviour
 {
-    //Singelton Stuff
-    private DataManager() { }
+    [Header("For setting up, not changing during game")]
+    public int currentScore = 0;
+    public int allowedFailures = 10;
+    public int currentFailures = 10;
+    public float gameSpeed = 2f;
+    public float timePassed = 0f;
+    public float timeUntilDawn = 120f;
 
-
-    public static DataManager Instance
+    void Start()
     {
-        get { return lazy.Value; }
-    }
-
-
-    private static readonly Lazy<DataManager> lazy = new Lazy<DataManager>(() => new DataManager());
-
-    //My Stuff
-    private int currentScore = 0;
-    private float gameSpeed = 2f;
-    private float timePassed = 0f;
-    private float timeUntilDawn = 120f;
-    //private int missesUntilGameOver = 10;
-    //private int housesUntilDawn = 50;
-    //private int presentsUntilDawn = 20;
-
-    public enum presentTypes
-    {
-        RED,
-        GREEN,
-        YELLOW,
-        NAUGHTY
-    }
-
-    public int addScore(int addScore)
-    {
-        currentScore += addScore;
-        return currentScore;
-    }
-
-    public int removeScore(int removeScore)
-    {
-        currentScore -= removeScore;
-        return currentScore;
-    }
-
-    public int getCurrentScore()
-    {
-        return currentScore;
-    }
-
-    public float getGameSpeed()
-    {
-        return gameSpeed;
-    }
-
-    public void setGameSpeed(float newGameSpeed)
-    {
-        gameSpeed = newGameSpeed;
-    }
-
-    public void addTimePassed(float deltaTime)
-    {
-        timePassed += deltaTime;
-    }
-
-    public float getTimePassed()
-    {
-        return timePassed;
-    }
-
-    public float getTimeUntilDawn()
-    {
-        return timeUntilDawn;
+        Data.Instance.setCurrentScore(currentScore);
+        Data.Instance.setAllowedFailures(allowedFailures);
+        Data.Instance.setCurrentFailures(currentFailures);
+        Data.Instance.setGameSpeed(gameSpeed);
+        Data.Instance.setTimePassed(timePassed);
+        Data.Instance.setTimeUntilDawn(timeUntilDawn);
     }
 }

@@ -17,7 +17,7 @@ public class TimeManager : MonoBehaviour
 
     void Update()
     {
-        DataManager.Instance.addTimePassed(Time.deltaTime);
+        Data.Instance.addTimePassed(Time.deltaTime);
     }
 
     IEnumerator increaseGameSpeed()
@@ -27,14 +27,14 @@ public class TimeManager : MonoBehaviour
             yield return new WaitForSeconds(increaseSchedule);
             if (useSpeedLimit)
             {
-                if (DataManager.Instance.getGameSpeed() < speedLimit)
+                if (Data.Instance.getGameSpeed() < speedLimit)
                 {
-                    DataManager.Instance.setGameSpeed(DataManager.Instance.getGameSpeed() + increaseSpeedFactor);
+                    Data.Instance.setGameSpeed(Data.Instance.getGameSpeed() + increaseSpeedFactor);
                 }
             }
             else
             {
-                DataManager.Instance.setGameSpeed(DataManager.Instance.getGameSpeed() + increaseSpeedFactor);
+                Data.Instance.setGameSpeed(Data.Instance.getGameSpeed() + increaseSpeedFactor);
             }
         }
     }

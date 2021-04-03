@@ -19,7 +19,7 @@ public class LightManager : MonoBehaviour
     void Update()
     {
         //Goes from startIntensity to 1 in timeUntilDawn seconds
-        float intensity = DataManager.Instance.getTimePassed() / (DataManager.Instance.getTimeUntilDawn() + (DataManager.Instance.getTimeUntilDawn() * startIntensity)) + startIntensity;
+        float intensity = Data.Instance.getTimePassed() / (Data.Instance.getTimeUntilDawn() + (Data.Instance.getTimeUntilDawn() * startIntensity)) + startIntensity;
         if (lightenUp)
         {
             skyLight.intensity = intensity;

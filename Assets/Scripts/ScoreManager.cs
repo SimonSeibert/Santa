@@ -5,12 +5,16 @@ using UnityEngine;
 
 public class ScoreManager : MonoBehaviour
 {
+    [Header("Score")]
     public TextMeshProUGUI scoreText;
     public string scoreMessage = "Score: ";
     public float scoreTextSuccessScaling = 1.5f;
     public float scoreTextSuccessScalingTime = 1f;
-    public float scoreTextFailureRotation = 20f;
-    public float scoreTextFailureScalingTime = 1f;
+    [Header("Fails")]
+    public TextMeshProUGUI failsLeftText;
+    public string failsLeftMessage = "Fails Left: ";
+    public float failsLeftTextFailureRotation = 20f;
+    public float failsLeftTextFailureScalingTime = 1f;
 
     void Start()
     {
@@ -24,9 +28,14 @@ public class ScoreManager : MonoBehaviour
 
     public void score(bool success)
     {
+        //if (DataManager.Instance.getIsGameRunning())
+        //{
+
+
         if (success)
         {
-            DataManager.Instance.addScore(1);
+            Data.Instance.addScore(1);
+            scoreText.SetText(scoreMessage + Data.Instance.getCurrentScore());
 
             //Happy Scaling
             transform.localScale = Vector3.one;
@@ -40,24 +49,27 @@ public class ScoreManager : MonoBehaviour
         }
         else
         {
+            Data.Instance.failure(1);
+            failsLeftText.SetText(failsLeftMessage + Data.Instance.getCurrentFailures());
+
             //Sad Wiggle
             transform.localRotation = Quaternion.identity;
-            LeanTween.rotate(scoreText.gameObject, new Vector3(0f, 0f, scoreTextFailureRotation), scoreTextFailureScalingTime / 4)
+            LeanTween.rotate(failsLeftText.gameObject, new Vector3(0f, 0f, failsLeftTextFailureRotation), failsLeftTextFailureScalingTime / 4)
                 .setFrom(new Vector3(0f, 0f, 0f))
                 .setEaseInOutSine();
-            LeanTween.rotate(scoreText.gameObject, new Vector3(0f, 0f, -scoreTextFailureRotation), scoreTextFailureScalingTime / 2)
-                .setDelay(scoreTextFailureScalingTime / 4)
+            LeanTween.rotate(failsLeftText.gameObject, new Vector3(0f, 0f, -failsLeftTextFailureRotation), failsLeftTextFailureScalingTime / 2)
+                .setDelay(failsLeftTextFailureScalingTime / 4)
                 .setEaseInOutSine();
-            LeanTween.rotate(scoreText.gameObject, new Vector3(0f, 0f, 0f), scoreTextFailureScalingTime / 4)
-                .setDelay(scoreTextFailureScalingTime / 2 + scoreTextFailureScalingTime / 4)
+            LeanTween.rotate(failsLeftText.gameObject, new Vector3(0f, 0f, 0f), failsLeftTextFailureScalingTime / 4)
+                .setDelay(failsLeftTextFailureScalingTime / 2 + failsLeftTextFailureScalingTime / 4)
                 .setEaseInOutSine();
 
-            if (DataManager.Instance.getCurrentScore() > 0)
+            if (Data.Instance.getCurrentFailures() <= 0)
             {
-                DataManager.Instance.addScore(-1);
-
+                GameObject.FindGameObjectWithTag("Menu_Manager").GetComponent<MenuManager>().activateGameOverUI();
+                GameObject.FindGameObjectWithTag("Menu_Manager").GetComponent<HighScores>().receiveNewScore(Data.Instance.getCurrentScore());
             }
         }
-        scoreText.SetText(scoreMessage + DataManager.Instance.getCurrentScore());
+        //}
     }
 }
