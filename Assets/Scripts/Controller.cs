@@ -6,7 +6,7 @@ public class Controller : MonoBehaviour
 {
     [Header("Objects")]
     public Transform presentSpawner;
-    public GameObject redPresent;
+    public GameObject present;
     [Header("Stats")]
     public float presentCooldownTime = 1f;
     public float upAndDownSpeed = 2f;
@@ -36,28 +36,28 @@ public class Controller : MonoBehaviour
         if (!presentOnCooldown)
         {
             //Instansiate ("Throw") present
-            GameObject present = Instantiate(redPresent, presentSpawner.position, Quaternion.identity, presentSpawner);
+            GameObject tmp = Instantiate(present, presentSpawner.position, Quaternion.identity, presentSpawner);
             switch (presentType)
             {
                 case Data.presentTypes.RED:
-                    present.SendMessageUpwards("setPresentType", Data.presentTypes.RED);
+                    tmp.SendMessageUpwards("setPresentType", Data.presentTypes.RED);
                     break;
                 case Data.presentTypes.GREEN:
-                    present.SendMessageUpwards("setPresentType", Data.presentTypes.GREEN);
+                    tmp.SendMessageUpwards("setPresentType", Data.presentTypes.GREEN);
                     break;
                 case Data.presentTypes.YELLOW:
-                    present.SendMessageUpwards("setPresentType", Data.presentTypes.YELLOW);
+                    tmp.SendMessageUpwards("setPresentType", Data.presentTypes.YELLOW);
                     break;
                 //Naughty is useless right now as your not supposed to throw anything but maybe later you could add coal
                 case Data.presentTypes.NAUGHTY:
-                    present.SendMessageUpwards("setPresentType", Data.presentTypes.NAUGHTY);
+                    tmp.SendMessageUpwards("setPresentType", Data.presentTypes.NAUGHTY);
                     break;
                 default:
-                    present.SendMessageUpwards("setPresentType", Data.presentTypes.RED);
+                    tmp.SendMessageUpwards("setPresentType", Data.presentTypes.RED);
                     break;
             }
             //Add a bit of random rotation to each throw
-            if (enableDropSpin) present.GetComponent<Rigidbody2D>().AddTorque(Random.Range(-dropSpinRange, dropSpinRange), ForceMode2D.Impulse);
+            if (enableDropSpin) tmp.GetComponent<Rigidbody2D>().AddTorque(Random.Range(-dropSpinRange, dropSpinRange), ForceMode2D.Impulse);
             //Start cooldown
             presentOnCooldown = true;
         }
