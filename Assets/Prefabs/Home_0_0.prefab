@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 939397361155871999}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.8, z: -4}
+  m_LocalPosition: {x: 0.33, y: 0.39, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children: []
   m_Father: {fileID: 440222300269184922}
@@ -228,18 +228,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 1.87169, y: 1.9330105}
+  m_Offset: {x: 1.936126, y: 1.9611084}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
-    oldSize: {x: 17.777779, y: 10}
+    oldSize: {x: 18.285715, y: 10.285714}
     newSize: {x: 15, y: 16.2}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.067005634, y: 3.8606246}
+  m_Size: {x: 0.091089845, y: 3.9168205}
   m_EdgeRadius: 0
 --- !u!61 &1856191321446072673
 BoxCollider2D:
@@ -254,18 +254,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 2.71, y: 2.719887}
+  m_Offset: {x: 2.786266, y: 2.7921388}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
-    oldSize: {x: 17.777779, y: 10}
+    oldSize: {x: 18.285715, y: 10.285714}
     newSize: {x: 15, y: 16.2}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.08742905, y: 3.8809028}
+  m_Size: {x: 0.07940149, y: 4.0254064}
   m_EdgeRadius: 0
 --- !u!61 &1856191321446072672
 BoxCollider2D:
@@ -280,18 +280,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 2.4226646, y: 0.03650651}
+  m_Offset: {x: 2.4628048, y: 0.03650651}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
-    oldSize: {x: 17.777779, y: 10}
+    oldSize: {x: 18.285715, y: 10.285714}
     newSize: {x: 15, y: 16.2}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.0522413, y: 0.06573737}
+  m_Size: {x: 1.1325204, y: 0.06573737}
   m_EdgeRadius: 0
 --- !u!68 &5720414389272453174
 EdgeCollider2D:
@@ -312,10 +312,10 @@ EdgeCollider2D:
   - {x: -3.2767048, y: -3.5446472}
   - {x: -3.3568347, y: -3.5178812}
   - {x: -3.19306, y: -3.3471358}
-  - {x: -3.144568, y: -3.2222617}
-  - {x: -3.1355815, y: -1.416028}
-  - {x: -3.289576, y: -0.9461918}
-  - {x: -1.7287759, y: -0.1912148}
+  - {x: -3.1044283, y: -3.2463455}
+  - {x: -3.1114974, y: -1.416028}
+  - {x: -3.2735202, y: -0.8899958}
+  - {x: -1.704692, y: -0.10290694}
   m_AdjacentStartPoint: {x: 0, y: 0}
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
@@ -336,14 +336,14 @@ EdgeCollider2D:
   m_Offset: {x: 0, y: 0}
   m_EdgeRadius: 0
   m_Points:
-  - {x: 2.7464206, y: 3.839304}
-  - {x: 2.9939117, y: 3.9414563}
-  - {x: 3.4030864, y: 3.533755}
-  - {x: 3.9348173, y: 3.5310192}
-  - {x: 3.9347613, y: 2.9869387}
-  - {x: 4.3337483, y: 2.590463}
-  - {x: 4.094317, y: 2.45494}
-  - {x: 4.1005054, y: -0.006541431}
+  - {x: 2.8588123, y: 3.9276118}
+  - {x: 3.1143315, y: 4.0538483}
+  - {x: 3.499422, y: 3.654175}
+  - {x: 4.031153, y: 3.627355}
+  - {x: 4.039125, y: 3.0993304}
+  - {x: 4.478252, y: 2.6867988}
+  - {x: 4.2147365, y: 2.45494}
+  - {x: 4.2209253, y: 0.00951463}
   m_AdjacentStartPoint: {x: 0, y: 0}
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
@@ -445,12 +445,12 @@ PrefabInstance:
     - target: {fileID: 3144851238281352425, guid: 594f7cc2b04d7d2449faf6cff9427819,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.51
+      value: 3.88
       objectReference: {fileID: 0}
     - target: {fileID: 3144851238281352425, guid: 594f7cc2b04d7d2449faf6cff9427819,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.72
+      value: 1.81
       objectReference: {fileID: 0}
     - target: {fileID: 3144851238281352425, guid: 594f7cc2b04d7d2449faf6cff9427819,
         type: 3}
