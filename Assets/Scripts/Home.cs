@@ -59,6 +59,7 @@ public class Home : MonoBehaviour
                 else
                 {
                     scoreManager.SendMessageUpwards("score", true);
+                    collision.gameObject.SendMessageUpwards("playSuccess");
                 }
                 gotScore = true;
             }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+[RequireComponent(typeof(AudioSource))]
 public class MenuManager : MonoBehaviour
 {
     public GameObject menuUI;
@@ -12,9 +13,12 @@ public class MenuManager : MonoBehaviour
     public GameObject highScoreUI;
     public GameObject[] inGameObjects;
 
+    private AudioSource clickAudio;
 
     void Start()
     {
+        clickAudio = GetComponent<AudioSource>();
+
         activateMenuUI();
         foreach (GameObject go in inGameObjects)
         {
@@ -94,5 +98,10 @@ public class MenuManager : MonoBehaviour
     public void quitGame()
     {
         Application.Quit();
+    }
+
+    public void playClickSound()
+    {
+        clickAudio.PlayOneShot(clickAudio.clip);
     }
 }
