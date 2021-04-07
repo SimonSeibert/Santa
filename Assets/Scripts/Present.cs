@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 [RequireComponent(typeof(SpriteRenderer))]
 [RequireComponent(typeof(AudioSource))]
@@ -11,25 +9,28 @@ public class Present : MonoBehaviour
     public AudioSource successAudio;
 
     private Data.presentTypes presentType;
-    private float soundCooldownTimer = .4f;
-    private static float soundCooldown = .4f;
-    private bool soundAllowed = true;
+
+    private float hitSoundCooldownTimer = .4f;
+    private static float hitSoundCooldown = .4f;
+    private bool hitSoundAllowed = true;
+    private int howManyHitSoundsAllowed = 2;
 
 
     private void Start()
     {
+
     }
 
     private void Update()
     {
-        if (!soundAllowed)
+        if (!hitSoundAllowed)
         {
-            soundCooldownTimer -= Time.deltaTime;
+            hitSoundCooldownTimer -= Time.deltaTime;
         }
-        if (soundCooldownTimer <= 0)
+        if (hitSoundCooldownTimer <= 0 && howManyHitSoundsAllowed > 0)
         {
-            soundCooldownTimer = soundCooldown;
-            soundAllowed = true;
+            hitSoundCooldownTimer = hitSoundCooldown;
+            hitSoundAllowed = true;
         }
     }
 
@@ -68,10 +69,11 @@ public class Present : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (soundAllowed)
+        if (hitSoundAllowed)
         {
             hitAudio.PlayOneShot(hitAudio.clip);
-            soundAllowed = false;
+            howManyHitSoundsAllowed--;
+            hitSoundAllowed = false;
         }
     }
 }

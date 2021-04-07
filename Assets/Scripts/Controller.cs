@@ -7,34 +7,34 @@ public class Controller : MonoBehaviour
     [Header("Objects")]
     public Transform presentSpawner;
     public GameObject present;
+    public Animator animator;
     [Header("Stats")]
     public float presentCooldownTime = 1f;
-    public float upAndDownSpeed = 2f;
-    public float upAndDownHeight = 0.3f;
+
     public bool enableDropSpin = true;
     [Range(0f, .5f)]
     public float dropSpinRange = .2f;
 
-    float presentCooldownTimer;
-    bool presentOnCooldown = false;
-    float upAndDownOffsetY;
+    private float presentCooldownTimer;
+    private bool presentOnCooldown = false;
 
     void Start()
     {
         presentCooldownTimer = presentCooldownTime;
-        upAndDownOffsetY = transform.position.y;
     }
 
     void Update()
     {
         cooldownManagement();
-        moveUpAndDown();
     }
 
     void dropPresent(Data.presentTypes presentType)
     {
         if (!presentOnCooldown)
         {
+            //Play Animation
+            animator.SetBool("isThrowing", true);
+            StartCoroutine("stopThrowAnimation");
             //Instansiate ("Throw") present
             GameObject tmp = Instantiate(present, presentSpawner.position, Quaternion.identity, presentSpawner);
             switch (presentType)
@@ -63,6 +63,12 @@ public class Controller : MonoBehaviour
         }
     }
 
+    IEnumerator stopThrowAnimation()
+    {
+        yield return new WaitForSeconds(0.3f);
+        animator.SetBool("isThrowing", false);
+    }
+
     public void dropPresentRed()
     {
         dropPresent(Data.presentTypes.RED);
@@ -87,14 +93,5 @@ public class Controller : MonoBehaviour
             presentOnCooldown = false;
             presentCooldownTimer = presentCooldownTime;
         }
-    }
-
-    void moveUpAndDown()
-    {
-        Vector3 pos = transform.position;
-        //calculate what the new Y position will be
-        float newY = Mathf.Sin(Time.time * upAndDownSpeed);
-        //set the object's Y to the new calculated Y
-        transform.position = new Vector3(pos.x, newY * upAndDownHeight + upAndDownOffsetY, pos.z);
     }
 }
