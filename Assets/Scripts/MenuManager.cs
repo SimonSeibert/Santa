@@ -41,7 +41,7 @@ public class MenuManager : MonoBehaviour
         //DataManager.Instance.setIsGameRunning(false);
     }
 
-    public void activateInGameUI()
+    void activateInGameUI()
     {
         menuUI.SetActive(false);
         inGameUI.SetActive(true);
