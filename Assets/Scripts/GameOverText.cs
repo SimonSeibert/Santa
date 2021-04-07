@@ -11,6 +11,6 @@ public class GameOverText : MonoBehaviour
     void Start()
     {
         gameOverText = GetComponent<TextMeshProUGUI>();
-        gameOverText.text = "Game Over! You delivered " + Data.Instance.getCurrentScore() + " out of 2.2 Billion presents!";
+        gameOverText.text = "Christmas is ruined! You delivered " + Data.Instance.getCurrentScore() + " out of 2.2 Billion presents!";
     }
 }

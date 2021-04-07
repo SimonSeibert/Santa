@@ -8,7 +8,6 @@ public class Home : MonoBehaviour
     public SpriteRenderer presentTypeSprite;
     public Sprite[] presentTypeSprites;
     public BoxCollider2D successCollider;
-    public TextMeshProUGUI scoreText;
 
     private bool gotScore = false;
     private Data.presentTypes presentTypeWish;

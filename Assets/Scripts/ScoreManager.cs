@@ -7,7 +7,7 @@ public class ScoreManager : MonoBehaviour
 {
     [Header("Score")]
     public TextMeshProUGUI scoreText;
-    public string scoreMessage = "Score: ";
+    //public string scoreMessage = "Score: ";
     public float scoreTextSuccessScaling = 1.5f;
     public float scoreTextSuccessScalingTime = 1f;
     [Header("Fails")]
@@ -35,7 +35,7 @@ public class ScoreManager : MonoBehaviour
         if (success)
         {
             Data.Instance.addScore(1);
-            scoreText.SetText(scoreMessage + Data.Instance.getCurrentScore());
+            scoreText.SetText(""+Data.Instance.getCurrentScore());
 
             //Happy Scaling
             transform.localScale = Vector3.one;
