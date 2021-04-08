@@ -10076,7 +10076,7 @@ MonoBehaviour:
   allowedFailures: 10
   currentFailures: 10
   gameSpeed: 2
-  timePassed: 0
+  timePassed: 30
   timeUntilDawn: 240
 --- !u!1 &1800228677
 GameObject:
