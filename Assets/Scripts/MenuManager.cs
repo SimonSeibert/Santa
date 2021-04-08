@@ -11,6 +11,7 @@ public class MenuManager : MonoBehaviour
     public GameObject gameOverUI;
     public GameObject howToPlayUI;
     public GameObject highScoreUI;
+    public GameObject donateUI;
     public GameObject[] inGameObjects;
 
     private AudioSource clickAudio;
@@ -19,11 +20,11 @@ public class MenuManager : MonoBehaviour
     {
         clickAudio = GetComponent<AudioSource>();
 
-        activateMenuUI();
         foreach (GameObject go in inGameObjects)
         {
             go.SetActive(false);
         }
+        activateMenuUI();
     }
 
     void Update()
@@ -38,6 +39,7 @@ public class MenuManager : MonoBehaviour
         gameOverUI.SetActive(false);
         howToPlayUI.SetActive(false);
         highScoreUI.SetActive(false);
+        donateUI.SetActive(false);
         //DataManager.Instance.setIsGameRunning(false);
     }
 
@@ -48,6 +50,7 @@ public class MenuManager : MonoBehaviour
         gameOverUI.SetActive(false);
         howToPlayUI.SetActive(false);
         highScoreUI.SetActive(false);
+        donateUI.SetActive(false);
         //DataManager.Instance.setIsGameRunning(true);
     }
 
@@ -58,6 +61,7 @@ public class MenuManager : MonoBehaviour
         gameOverUI.SetActive(true);
         howToPlayUI.SetActive(false);
         highScoreUI.SetActive(false);
+        donateUI.SetActive(false);
         //DataManager.Instance.setIsGameRunning(false);
     }
 
@@ -68,6 +72,7 @@ public class MenuManager : MonoBehaviour
         gameOverUI.SetActive(false);
         howToPlayUI.SetActive(true);
         highScoreUI.SetActive(false);
+        donateUI.SetActive(false);
         //DataManager.Instance.setIsGameRunning(false);
     }
 
@@ -78,6 +83,18 @@ public class MenuManager : MonoBehaviour
         gameOverUI.SetActive(false);
         howToPlayUI.SetActive(false);
         highScoreUI.SetActive(true);
+        donateUI.SetActive(false);
+        //DataManager.Instance.setIsGameRunning(false);
+    }
+
+    public void activateDonateUI()
+    {
+        menuUI.SetActive(false);
+        inGameUI.SetActive(false);
+        gameOverUI.SetActive(false);
+        howToPlayUI.SetActive(false);
+        highScoreUI.SetActive(false);
+        donateUI.SetActive(true);
         //DataManager.Instance.setIsGameRunning(false);
     }
 

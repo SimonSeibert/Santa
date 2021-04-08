@@ -12,7 +12,6 @@ public class ScoreManager : MonoBehaviour
     public float scoreTextSuccessScalingTime = 1f;
     [Header("Fails")]
     public TextMeshProUGUI failsLeftText;
-    public string failsLeftMessage = "Fails Left: ";
     public float failsLeftTextFailureRotation = 20f;
     public float failsLeftTextFailureScalingTime = 1f;
 
@@ -35,7 +34,7 @@ public class ScoreManager : MonoBehaviour
         if (success)
         {
             Data.Instance.addScore(1);
-            scoreText.SetText(""+Data.Instance.getCurrentScore());
+            scoreText.SetText("" + Data.Instance.getCurrentScore());
 
             //Happy Scaling
             transform.localScale = Vector3.one;
@@ -50,7 +49,7 @@ public class ScoreManager : MonoBehaviour
         else
         {
             Data.Instance.failure(1);
-            failsLeftText.SetText(failsLeftMessage + Data.Instance.getCurrentFailures());
+            failsLeftText.SetText("Misses: " + Data.Instance.getCurrentFailures() + "/" + Data.Instance.getAllowedFailures());
 
             //Sad Wiggle
             transform.localRotation = Quaternion.identity;

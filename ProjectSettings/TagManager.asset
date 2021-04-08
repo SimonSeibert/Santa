@@ -62,7 +62,7 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Santa&Present
+  - name: Santa
     uniqueID: 1245705463
     locked: 0
   - name: Forground

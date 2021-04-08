@@ -11,6 +11,15 @@ TextureImporter:
   - first:
       213: -3703792806480854976
     second: HousesSpriteSheet_2
+  - first:
+      213: -1210363632492348304
+    second: HousesSpriteSheet_3
+  - first:
+      213: -1063030031383924437
+    second: HousesSpriteSheet_4
+  - first:
+      213: 2616487991048267201
+    second: HousesSpriteSheet_5
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -136,8 +145,8 @@ TextureImporter:
       name: HousesSpriteSheet_1
       rect:
         serializedVersion: 2
-        x: 0
-        y: 288
+        x: 512
+        y: 576
         width: 512
         height: 288
       alignment: 0
@@ -158,7 +167,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
+        y: 288
         width: 512
         height: 288
       alignment: 0
@@ -170,6 +179,69 @@ TextureImporter:
       bones: []
       spriteID: 040cf08e01c799cc0800000000000000
       internalID: -3703792806480854976
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HousesSpriteSheet_3
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 288
+        width: 512
+        height: 288
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 07cfd3460bce33fe0800000000000000
+      internalID: -1210363632492348304
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HousesSpriteSheet_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 512
+        height: 288
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b21f9c191db5f31f0800000000000000
+      internalID: -1063030031383924437
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HousesSpriteSheet_5
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 0
+        width: 512
+        height: 288
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c5e18117f1af4420800000000000000
+      internalID: 2616487991048267201
       vertices: []
       indices: 
       edges: []

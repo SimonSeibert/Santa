@@ -69,7 +69,7 @@ public class Home : MonoBehaviour
     {
         if (!gotScore && presentTypeWish != Data.presentTypes.NAUGHTY)
         {
-            scoreManager.SendMessageUpwards("score", false);
+            scoreManager.SendMessageUpwards("score", false, SendMessageOptions.DontRequireReceiver);
         }
     }
 }
