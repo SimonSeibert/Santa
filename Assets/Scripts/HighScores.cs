@@ -7,6 +7,7 @@ public class HighScores : MonoBehaviour
 {
     public TextMeshProUGUI[] scoreTexts;
     private List<int> scoresList;
+    private string prefPrequel = "HighScore";
 
     void OnEnable()
     {
@@ -17,7 +18,7 @@ public class HighScores : MonoBehaviour
     {
         for (int i = 0; i < scoreTexts.Length; i++)
         {
-            scoreTexts[i].text = (i + 1) + ": " + PlayerPrefs.GetInt("HighScore" + i);
+            scoreTexts[i].text = (i + 1) + ": " + PlayerPrefs.GetInt(prefPrequel + i);
         }
     }
 
@@ -25,9 +26,9 @@ public class HighScores : MonoBehaviour
     {
         for (int i = 0; i < scoreTexts.Length; i++)
         {
-            if (PlayerPrefs.GetInt("HighScore" + i) < score)
+            if (PlayerPrefs.GetInt(prefPrequel + i) < score)
             {
-                PlayerPrefs.SetInt("HighScore" + i, score);
+                PlayerPrefs.SetInt(prefPrequel + i, score);
                 return;
             }
         }
@@ -37,7 +38,7 @@ public class HighScores : MonoBehaviour
     {
         for (int i = 0; i < scoreTexts.Length; i++)
         {
-            PlayerPrefs.SetInt("HighScore" + i, 0);
+            PlayerPrefs.SetInt(prefPrequel + i, 0);
         }
         refreshHighScoreTexts();
     }

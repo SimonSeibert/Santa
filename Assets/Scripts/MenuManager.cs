@@ -40,7 +40,7 @@ public class MenuManager : MonoBehaviour
         howToPlayUI.SetActive(false);
         highScoreUI.SetActive(false);
         donateUI.SetActive(false);
-        //DataManager.Instance.setIsGameRunning(false);
+        Data.Instance.setIsGameActive(false);
     }
 
     void activateInGameUI()
@@ -51,7 +51,6 @@ public class MenuManager : MonoBehaviour
         howToPlayUI.SetActive(false);
         highScoreUI.SetActive(false);
         donateUI.SetActive(false);
-        //DataManager.Instance.setIsGameRunning(true);
     }
 
     public void activateGameOverUI()
@@ -62,7 +61,7 @@ public class MenuManager : MonoBehaviour
         howToPlayUI.SetActive(false);
         highScoreUI.SetActive(false);
         donateUI.SetActive(false);
-        //DataManager.Instance.setIsGameRunning(false);
+        Data.Instance.setIsGameActive(false);
     }
 
     public void activateHowToPlayUI()
@@ -73,7 +72,7 @@ public class MenuManager : MonoBehaviour
         howToPlayUI.SetActive(true);
         highScoreUI.SetActive(false);
         donateUI.SetActive(false);
-        //DataManager.Instance.setIsGameRunning(false);
+        Data.Instance.setIsGameActive(false);
     }
 
     public void activateHighScoreUI()
@@ -84,7 +83,7 @@ public class MenuManager : MonoBehaviour
         howToPlayUI.SetActive(false);
         highScoreUI.SetActive(true);
         donateUI.SetActive(false);
-        //DataManager.Instance.setIsGameRunning(false);
+        Data.Instance.setIsGameActive(false);
     }
 
     public void activateDonateUI()
@@ -95,7 +94,7 @@ public class MenuManager : MonoBehaviour
         howToPlayUI.SetActive(false);
         highScoreUI.SetActive(false);
         donateUI.SetActive(true);
-        //DataManager.Instance.setIsGameRunning(false);
+        Data.Instance.setIsGameActive(false);
     }
 
     public void startGame()
@@ -105,6 +104,7 @@ public class MenuManager : MonoBehaviour
         {
             go.SetActive(true);
         }
+        Data.Instance.setIsGameActive(true);
     }
 
     public void restartGame()

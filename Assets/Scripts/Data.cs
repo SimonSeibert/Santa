@@ -22,6 +22,7 @@ public sealed class Data
     private float gameSpeed;
     private float timePassed;
     private float timeUntilDawn;
+    private bool isGameActive;
     private List<presentTypes> lastFourPresents = new List<presentTypes>()
     {
         presentTypes.NAUGHTY,presentTypes.NAUGHTY,presentTypes.NAUGHTY,presentTypes.NAUGHTY
@@ -34,6 +35,17 @@ public sealed class Data
         GREEN,
         YELLOW,
         NAUGHTY
+    }
+
+    ///ACTIVE GAME/////////////////////////
+    public bool getIsGameActive()
+    {
+        return isGameActive;
+    }
+
+    public void setIsGameActive(bool isActive)
+    {
+        isGameActive = isActive;
     }
 
     ///LAST-FOUR-PRESENTS/////////////////////////
