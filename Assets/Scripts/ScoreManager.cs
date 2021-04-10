@@ -48,25 +48,29 @@ public class ScoreManager : MonoBehaviour
         }
         else
         {
-            Data.Instance.failure(1);
-            failsLeftText.SetText("Misses: " + Data.Instance.getCurrentFailures() + "/" + Data.Instance.getAllowedFailures());
-
-            //Sad Wiggle
-            transform.localRotation = Quaternion.identity;
-            LeanTween.rotate(failsLeftText.gameObject, new Vector3(0f, 0f, failsLeftTextFailureRotation), failsLeftTextFailureScalingTime / 4)
-                .setFrom(new Vector3(0f, 0f, 0f))
-                .setEaseInOutSine();
-            LeanTween.rotate(failsLeftText.gameObject, new Vector3(0f, 0f, -failsLeftTextFailureRotation), failsLeftTextFailureScalingTime / 2)
-                .setDelay(failsLeftTextFailureScalingTime / 4)
-                .setEaseInOutSine();
-            LeanTween.rotate(failsLeftText.gameObject, new Vector3(0f, 0f, 0f), failsLeftTextFailureScalingTime / 4)
-                .setDelay(failsLeftTextFailureScalingTime / 2 + failsLeftTextFailureScalingTime / 4)
-                .setEaseInOutSine();
-
-            if (Data.Instance.getCurrentFailures() <= 0)
+            if (failsLeftText != null)
             {
-                GameObject.FindGameObjectWithTag("Menu_Manager").GetComponent<MenuManager>().activateGameOverUI();
-                GameObject.FindGameObjectWithTag("Menu_Manager").GetComponent<HighScores>().receiveNewScore(Data.Instance.getCurrentScore());
+
+                Data.Instance.failure(1);
+                failsLeftText.SetText("Misses: " + Data.Instance.getCurrentFailures() + "/" + Data.Instance.getAllowedFailures());
+
+                //Sad Wiggle
+                transform.localRotation = Quaternion.identity;
+                LeanTween.rotate(failsLeftText.gameObject, new Vector3(0f, 0f, failsLeftTextFailureRotation), failsLeftTextFailureScalingTime / 4)
+                    .setFrom(new Vector3(0f, 0f, 0f))
+                    .setEaseInOutSine();
+                LeanTween.rotate(failsLeftText.gameObject, new Vector3(0f, 0f, -failsLeftTextFailureRotation), failsLeftTextFailureScalingTime / 2)
+                    .setDelay(failsLeftTextFailureScalingTime / 4)
+                    .setEaseInOutSine();
+                LeanTween.rotate(failsLeftText.gameObject, new Vector3(0f, 0f, 0f), failsLeftTextFailureScalingTime / 4)
+                    .setDelay(failsLeftTextFailureScalingTime / 2 + failsLeftTextFailureScalingTime / 4)
+                    .setEaseInOutSine();
+
+                if (Data.Instance.getCurrentFailures() <= 0)
+                {
+                    GameObject.FindGameObjectWithTag("Menu_Manager").GetComponent<MenuManager>().activateGameOverUI();
+                    GameObject.FindGameObjectWithTag("Menu_Manager").GetComponent<HighScores>().receiveNewScore(Data.Instance.getCurrentScore());
+                }
             }
         }
         //}

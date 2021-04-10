@@ -16,11 +16,8 @@ public class Home : MonoBehaviour
     private void Start()
     {
         scoreManager = GameObject.FindGameObjectWithTag("Score_Manager");
-        //Get Random present Type
-        Array values = Enum.GetValues(typeof(Data.presentTypes));
-        System.Random random = new System.Random();
-        presentTypeWish = (Data.presentTypes)values.GetValue(random.Next(values.Length));
 
+        presentTypeWish = getRandomPresentWish();
         switch (presentTypeWish)
         {
             case Data.presentTypes.RED:
@@ -38,6 +35,25 @@ public class Home : MonoBehaviour
             default:
                 presentTypeSprite.sprite = presentTypeSprites[0];
                 break;
+        }
+    }
+
+    //But there is only a max of one naughty in 4 houses
+    Data.presentTypes getRandomPresentWish()
+    {
+        //Get Random present Type
+        Array values = Enum.GetValues(typeof(Data.presentTypes));
+        System.Random random = new System.Random();
+        Data.presentTypes tmpWish = (Data.presentTypes)values.GetValue(random.Next(values.Length));
+
+        if (tmpWish == Data.presentTypes.NAUGHTY && Data.Instance.getLastFourPresents().Contains(Data.presentTypes.NAUGHTY))
+        {
+            return getRandomPresentWish();
+        }
+        else
+        {
+            Data.Instance.addToLastFourPresents(tmpWish);
+            return tmpWish;
         }
 
     }

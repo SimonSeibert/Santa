@@ -10,7 +10,7 @@ public class TimeManager : MonoBehaviour
     public bool useSpeedLimit;
     public float speedLimit = 5f;
 
-    void Start()
+    void OnEnable()
     {
         StartCoroutine("increaseGameSpeed");
     }

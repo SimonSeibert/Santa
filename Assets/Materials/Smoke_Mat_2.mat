@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Smoke_Mat
+  m_Name: Smoke_Mat_2
   m_Shader: {fileID: -6465566751694194690, guid: 4ccd134f1af6de04ab527bfd9d11dba6,
     type: 3}
   m_ShaderKeywords: ETC1_EXTERNAL_ALPHA
@@ -58,8 +58,8 @@ Material:
     - _FogSize: 20
     - _FogSize2: 10
     - _PixelateAmount: 5
-    - _SmokeSize: 20
-    - _SmokeSize2: 10
+    - _SmokeSize: 25
+    - _SmokeSize2: 17
     - _SmokeThickness: 0.3
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
@@ -69,6 +69,6 @@ Material:
     - _FogSpeed2: {r: 0.1, g: 0, b: 0, a: 0}
     - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
     - _SmokeColor: {r: 0.3207547, g: 0.3207547, b: 0.3207547, a: 0}
-    - _SmokeSpeed: {r: 0, g: -0.3, b: 0, a: 0}
-    - _SmokeSpeed2: {r: 0, g: -0.5, b: 0, a: 0}
+    - _SmokeSpeed: {r: 0.3, g: -0.3, b: 0, a: 0}
+    - _SmokeSpeed2: {r: 0.2, g: -0.5, b: 0, a: 0}
   m_BuildTextureStacks: []

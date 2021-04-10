@@ -22,6 +22,11 @@ public sealed class Data
     private float gameSpeed;
     private float timePassed;
     private float timeUntilDawn;
+    private List<presentTypes> lastFourPresents = new List<presentTypes>()
+    {
+        presentTypes.NAUGHTY,presentTypes.NAUGHTY,presentTypes.NAUGHTY,presentTypes.NAUGHTY
+    };
+
 
     public enum presentTypes
     {
@@ -30,6 +35,30 @@ public sealed class Data
         YELLOW,
         NAUGHTY
     }
+
+    ///LAST-FOUR-PRESENTS/////////////////////////
+    public List<presentTypes> getLastFourPresents()
+    {
+        return lastFourPresents;
+    }
+
+    public void addToLastFourPresents(presentTypes t)
+    {
+        for (int i = lastFourPresents.Count - 1; i > 0; i--)
+        {
+            lastFourPresents[i] = lastFourPresents[i - 1];
+        }
+        lastFourPresents[0] = t;
+    }
+
+    //public void initLastFourPresents()
+    //{
+    //    lastFourPresents.Enqueue(presentTypes.NAUGHTY);
+    //    lastFourPresents.Enqueue(presentTypes.NAUGHTY);
+    //    lastFourPresents.Enqueue(presentTypes.NAUGHTY);
+    //    lastFourPresents.Enqueue(presentTypes.NAUGHTY);
+    //}
+
 
     ///SCORE/////////////////////////
     public int addScore(int addScore)

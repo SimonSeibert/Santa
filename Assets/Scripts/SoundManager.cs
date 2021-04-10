@@ -8,7 +8,7 @@ public class SoundManager : MonoBehaviour
     public AudioClip presentSuccess;
     public AudioClip presentFail;
 
-    private AudioSource audio;
+    private new AudioSource audio;
 
     void Start()
     {
