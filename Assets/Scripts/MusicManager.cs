@@ -4,29 +4,20 @@ using UnityEngine;
 
 public class MusicManager : MonoBehaviour
 {
-    public AudioClip intro;
-    public AudioClip loop;
-    private new AudioSource audio;
-    private float introTimer;
+    public AudioSource intro;
+    public AudioSource loop;
 
-    void Start()
+    void Awake()
     {
-        audio = GetComponent<AudioSource>();
-        audio.PlayOneShot(intro);
-        introTimer = intro.length;
-    }
+        //Because scene would load another music object we need to destroy any music object except for one
+        GameObject[] objs = GameObject.FindGameObjectsWithTag("Music");
+        if (objs.Length > 1) Destroy(gameObject);
 
-    void Update()
-    {
-        if (introTimer >= 0)
-        {
-            introTimer -= Time.deltaTime;
-            if (introTimer < 0)
-            {
-                audio.clip = loop;
-                audio.Play();
-                audio.loop = true;
-            }
-        }
+        DontDestroyOnLoad(gameObject);
+
+        intro.PlayOneShot(intro.clip);
+        intro.loop = false;
+        loop.PlayDelayed(intro.clip.length);
+        loop.loop = true;
     }
 }

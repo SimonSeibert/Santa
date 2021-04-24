@@ -10,6 +10,7 @@ TagManager:
   - Score_Manager
   - Menu_Manager
   - High_Scores
+  - Music
   layers:
   - Default
   - TransparentFX

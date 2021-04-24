@@ -5,14 +5,15 @@ using UnityEngine.EventSystems;
 
 public class ButtonMoveChild : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 {
-    public float moveAmount = 10f;
+
+    private float factor = Screen.height * 0.015f;
 
     public void OnPointerDown(PointerEventData eventData)
     {
         //Move Down
         foreach (Transform child in transform)
         {
-            child.position = new Vector3(child.position.x, child.position.y - moveAmount, child.position.z);
+            child.position = new Vector3(child.position.x, child.position.y - factor, child.position.z);
         }
     }
 
@@ -21,7 +22,7 @@ public class ButtonMoveChild : MonoBehaviour, IPointerDownHandler, IPointerUpHan
         //Move Back Up
         foreach (Transform child in transform)
         {
-            child.position = new Vector3(child.position.x, child.position.y + moveAmount, child.position.z);
+            child.position = new Vector3(child.position.x, child.position.y + factor, child.position.z);
         }
     }
 }
