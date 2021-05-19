@@ -3,6 +3,8 @@
 A small game [which is also available on itch.io](https://mrschmorington.itch.io/present-delivery). <br/>
 There you can also find a free .apk file for android or play it inside a browser alternatively. <br/>
 <br/>
+![Screenshot of the game](https://img.itch.zone/aW1hZ2UvOTg5MDQ1LzU2MjY2NzgucG5n/original/wEa0M3.png) <br/>
+
 It's *christmas night* and about 2.2 billion presents need to be delivered to children all over the world! <br/>
 As expected your job as santa is to throw the correct presents into the chimneys. But watch out, as dawn nears you get faster and faster! <br/>
 
